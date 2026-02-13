@@ -39,6 +39,7 @@ tasks.named('test') {
 
 	filter {
 		excludeTestsMatching "*FunctionalTest"
+		excludeTestsMatching "*IT"
 	}
 	finalizedBy jacocoTestReport
 }
