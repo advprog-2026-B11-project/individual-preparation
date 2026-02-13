@@ -1,8 +1,10 @@
 package com.example.individualprep;
 
-import com.example.individualprep.service.ArithmeticUtility;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import com.example.individualprep.service.ArithmeticUtility;
 
 class ArithmeticUtilityTest {
 
@@ -44,5 +46,17 @@ class ArithmeticUtilityTest {
         });
 
         assertEquals("Cannot divide by zero", exception.getMessage());
+    }
+
+    @Test
+    void testAdd() {
+        assertEquals(5.0, arithmeticUtility.add(2.0, 3.0), 0.0001);
+        
+        assertEquals(1.0, arithmeticUtility.add(3.0, -2.0), 0.0001);
+        assertEquals(-5.0, arithmeticUtility.add(-2.0, -3.0), 0.0001);
+        
+        assertEquals(10.0, arithmeticUtility.add(10.0, 0.0), 0.0001);
+        
+        assertEquals(5.7, arithmeticUtility.add(2.5, 3.2), 0.0001);
     }
 }
