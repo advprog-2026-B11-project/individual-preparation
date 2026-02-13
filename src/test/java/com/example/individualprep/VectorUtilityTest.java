@@ -1,8 +1,11 @@
 package com.example.individualprep;
 
-import com.example.individualprep.service.VectorUtility;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import com.example.individualprep.service.VectorUtility;
 
 class VectorUtilityTest {
     VectorUtility vectorUtility = new VectorUtility();
@@ -61,5 +64,11 @@ class VectorUtilityTest {
         assertThrows(IllegalArgumentException.class, () -> {
             vectorUtility.add(v1, v2);
         });
+    }
+
+    @Test
+    void testNorm() {
+        double[] vector = {3.0, 4.0};
+        assertEquals(5.0, vectorUtility.norm(vector), 0.0001);
     }
 }
